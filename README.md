@@ -1,6 +1,8 @@
 # Verkefni 8
 
-Forrita skal viðmót sem leyfir að bæta við, breyta, eyða og klára verkefni af lista.
+## Unnin af: Jaan Jaerving
+
+Viðmót sem leyfir að bæta við, breyta, eyða og klára verkefni af lista.
 
 Gefið er HTML skjal með þrem atriðum sem skulu virka eftir að forrit keyrir. Allir stílar sem þarf fyrir verkefni eru gefnir.
 
