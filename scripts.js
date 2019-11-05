@@ -44,18 +44,34 @@ const text = (() => {
 
     // event handler fyrir það að breyta færslu
     function edit(e) {
-        var tgt = e.target;
-        var parent = e.target.parentNode;
-        const input = el('input', 'item__text');
+        const tgt = e.target;
+        const parent = e.target.parentNode;
+        const input = el('input', 'item__edit');
         input.value = tgt.innerHTML;
+        input.addEventListener('keyup', commit);
 
+        const button = parent.querySelector('.item__button');
         tgt.parentNode.removeChild(tgt);
-        parent.insertBefore(input, parent.childNodes[2]);
+        parent.insertBefore(input, button);
         input.select();
     }
 
     // event handler fyrir það að klára að breyta færslu
     function commit(e) {
+        const { keyCode, target } = e;
+
+        if (keyCode !== ENTER_KEYCODE) {
+            return;
+        }
+
+        const { value, parentNode } = target;
+        parentNode.removeChild(target);
+
+        const text = el('span', 'item__text', edit);
+        text.appendChild(document.createTextNode(value));
+
+        const button = parentNode.querySelector('.item__button');
+        parentNode.insertBefore(text, button);
 
     }
 
