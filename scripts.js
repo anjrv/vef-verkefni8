@@ -44,7 +44,14 @@ const text = (() => {
 
     // event handler fyrir það að breyta færslu
     function edit(e) {
+        var tgt = e.target;
+        var parent = e.target.parentNode;
+        const input = el('input', 'item__text');
+        input.value = tgt.innerHTML;
 
+        tgt.parentNode.removeChild(tgt);
+        parent.insertBefore(input, parent.childNodes[2]);
+        input.select();
     }
 
     // event handler fyrir það að klára að breyta færslu
@@ -73,8 +80,6 @@ const text = (() => {
     function deleteItem(e) {
         const parent = e.target.parentNode;
         parent.parentNode.removeChild(parent);
-
-        //TODO remove listeners ???
     }
 
     // hjálparfall til að útbúa element
